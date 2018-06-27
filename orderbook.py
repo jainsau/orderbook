@@ -58,7 +58,7 @@ class OrderBook:
             self.all_transactions.append(transaction_record)
 
         if len(best_quotes) == 0:
-            order_tree.remove_price(order.price)
+            order_tree.remove_price(top_order.price)
 
     def cancel_order(self, order):
 
