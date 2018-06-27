@@ -30,20 +30,11 @@ class OrderTree:
         if len(self.price_map[order.price]) == 0:
             self.remove_price(order.price)
 
-    def get_price_list(self, price):
-        if price in self.prices:
-            return self.price_map[price]
-        else:
-            return None
-
     def min_price(self):
         if len(self):
             return self.prices[0]
         else:
             return None
-
-    def min_price_list(self):
-        return self.get_price_list(self.min_price())
 
     def max_price(self):
         if len(self):
@@ -51,6 +42,15 @@ class OrderTree:
         else:
             return None
 
-    def max_price_list(self):
-        return self.get_price_list(self.max_price())
+    def get_quotes_list(self, price):
+        if price in self.prices:
+            return self.price_map[price]
+        else:
+            return None
+
+    def min_price_quotes(self):
+        return self.get_quotes_list(self.min_price())
+
+    def max_price_quotes(self):
+        return self.get_quotes_list(self.max_price())
 
